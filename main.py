@@ -17,13 +17,19 @@ def start_game():
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_d:
-                    hero.rect.centerx += 10
-                if event.key == pygame.K_a:
-                    hero.rect.centerx -= 10
+                if event.key == pygame.K_RIGHT:
+                    hero.move_right = True
+                if event.key == pygame.K_LEFT:
+                    hero.move_left = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    hero.move_right = False
+                if event.key == pygame.K_LEFT:
+                    hero.move_left = False
 
         pygame.display.flip()
         screen.fill(0)
         hero.output_hero()
+        hero.moving_hero(screen)
 
 start_game()
