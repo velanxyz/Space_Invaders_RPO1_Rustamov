@@ -15,7 +15,7 @@ class Bullet(pygame.sprite.Sprite):
         '''отрисовка пуль через спрайты'''
         pygame.draw.rect(self.screen, self.color, self.rect)
 
-    def update_bullet(self):
+    def update(self):
         """перемещение пули вверх"""
         self.y -= self.speed
         self.rect.y = self.y
